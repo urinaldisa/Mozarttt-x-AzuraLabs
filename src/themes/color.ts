@@ -1,7 +1,7 @@
 import {ColorScheme} from './_types/_types';
 
 export const colors: ColorScheme = {
-  primary: '#00A15E',
+  primary: '#30336b',
   backgroundColor: '#F4F4F4',
   info: '#62B1F6',
   success: '#18ba9c',

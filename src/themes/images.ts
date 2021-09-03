@@ -10,4 +10,9 @@ export const images = {
     otherOff: require('../assets/icon/otherTab.png'),
     accountOff: require('../assets/icon/accountTab.png'),
   },
+  onBoarding: {
+    lewy: require('../assets/icon/lewy.png'),
+    mbape: require('../assets/icon/mbape.png'),
+    firmino: require('../assets/icon/firmino.png'),
+  },
 };

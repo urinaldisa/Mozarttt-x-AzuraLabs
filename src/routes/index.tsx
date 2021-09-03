@@ -12,9 +12,11 @@ import {TabbarIcon} from '../components/molecules';
 import {images} from '../themes/images';
 import Favorit from '../screens/favorit';
 import Account from '../screens/account';
-import Other from '../screens/other';
+import OnBoarding from '../screens/auth/onBoarding';
+import ListLeague from '../screens/main/listLeague';
+import DetailTeam from '../screens/main/detailTeam';
 
-// const Stack = createStackNavigator();
+const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const options = {
@@ -82,34 +84,35 @@ const MainApp = () => {
           ),
         }}
       />
-      <Tab.Screen
-        name="Other"
-        component={Other}
-        options={{
-          tabBarIcon: ({focused}) => (
-            <TabbarIcon
-              routeName="Lainnya"
-              focused={focused}
-              iconActive={images.tab.other}
-              iconNonActive={images.tab.otherOff}
-            />
-          ),
-        }}
-      />
     </Tab.Navigator>
   );
 };
 
-// const Router = () => {
-//   return (
-//     <Stack.Navigator>
-//       <Stack.Screen
-//         // name="Home"
-//         // component={Home}
-//         // options={{headerShown: false}}
-//       />
-//     </Stack.Navigator>
-//   );
-// };
+const Router = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="onBoarding"
+        component={OnBoarding}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="MainApp"
+        component={MainApp}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="ListLeague"
+        component={ListLeague}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="DetailTeam"
+        component={DetailTeam}
+        options={{headerShown: false}}
+      />
+    </Stack.Navigator>
+  );
+};
 
-export default MainApp;
+export default Router;
