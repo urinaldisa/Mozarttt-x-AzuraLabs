@@ -15,6 +15,7 @@ import Account from '../screens/account';
 import OnBoarding from '../screens/auth/onBoarding';
 import ListLeague from '../screens/main/listLeague';
 import DetailTeam from '../screens/main/detailTeam';
+import Team from '../screens/main/Team';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -62,24 +63,10 @@ const MainApp = () => {
         options={{
           tabBarIcon: ({focused}) => (
             <TabbarIcon
-              routeName="Favorit"
+              routeName="Search"
               focused={focused}
               iconActive={images.tab.favorit}
               iconNonActive={images.tab.favoritOff}
-            />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Account"
-        component={Account}
-        options={{
-          tabBarIcon: ({focused}) => (
-            <TabbarIcon
-              routeName="Akun"
-              focused={focused}
-              iconActive={images.tab.account}
-              iconNonActive={images.tab.accountOff}
             />
           ),
         }}
@@ -109,6 +96,11 @@ const Router = () => {
       <Stack.Screen
         name="DetailTeam"
         component={DetailTeam}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Team"
+        component={Team}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

@@ -15,4 +15,5 @@ export const images = {
     mbape: require('../assets/icon/mbape.png'),
     firmino: require('../assets/icon/firmino.png'),
   },
+  bayern: require('../assets/icon/bayern.jpeg'),
 };

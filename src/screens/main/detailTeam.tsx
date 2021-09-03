@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import {useNavigation} from '@react-navigation/native';
 import axios from 'axios';
 import React, {useEffect} from 'react';
 import {useState} from 'react';
@@ -13,7 +14,8 @@ import {colors} from '../../themes/color';
 
 const DetailTeam = ({route}: any) => {
   const params = route.params,
-    [team, setTeam] = useState();
+    [team, setTeam] = useState(),
+    navigation = useNavigation();
   const getDataTeam = () => {
     axios.get(`${API_HOST.team}${params.id}`).then(({data}: any) => {
       setTeam(data.teams);
@@ -23,9 +25,12 @@ const DetailTeam = ({route}: any) => {
     getDataTeam();
   }, []);
   const renderItem = ({item}: any) => (
-    <Button rounded style={styles.item}>
+    <Button
+      rounded
+      style={styles.item}
+      onPress={() => navigation.navigate('Team', {data: item})}>
       <Image source={{uri: item.strTeamBadge}} style={styles.logo} />
-      <Text>{item.strTeam}</Text>
+      <Text type="regular">{item.strTeam}</Text>
     </Button>
   );
   console.log(team);

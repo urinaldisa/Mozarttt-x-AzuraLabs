@@ -1,5 +1,5 @@
 import {useNavigation} from '@react-navigation/native';
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {Image, StyleSheet, View} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 import {
@@ -7,6 +7,7 @@ import {
   widthPercentageToDP,
 } from 'react-native-responsive-screen';
 import {Button, Gap, Text} from '../../components/atom';
+import News from './news';
 
 const Home = () => {
   const navigation = useNavigation();
@@ -56,7 +57,7 @@ const Home = () => {
     <View style={styles.page}>
       <Gap height={heightPercentageToDP(0.5)} />
       <View style={styles.content}>
-        <Gap height={heightPercentageToDP(0.3)} />
+        <Gap height={heightPercentageToDP(0.6)} />
         <View style={styles.league}>
           <Text type="semibold" size={20}>
             League by Country
@@ -67,7 +68,12 @@ const Home = () => {
             renderItem={renderItem}
             keyExtractor={item => item.id}
             horizontal
+            showsHorizontalScrollIndicator={false}
           />
+          <Text type="semibold" size={20}>
+            Sport Soccer News
+          </Text>
+          <News />
         </View>
       </View>
     </View>
@@ -82,15 +88,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#30336b',
   },
   img: {
-    width: 80,
-    height: 80,
-    borderRadius: 80 / 2,
+    width: 50,
+    height: 50,
+    borderRadius: 50 / 2,
     marginBottom: heightPercentageToDP(2),
   },
   country: {
-    marginRight: widthPercentageToDP(4),
+    marginRight: widthPercentageToDP(5),
     overflow: 'hidden',
-    height: heightPercentageToDP(15),
+    height: heightPercentageToDP(20),
     borderRadius: 10,
   },
   content: {
